@@ -3,25 +3,25 @@
 
 
 
-$KiloWattPerUur = 0.88
+#$KiloWattPerUur = 0.88
 
-$Kilowatt = 1000
+#$Kilowatt = 1000
 
 
 
-"How much watt per hour your machine is using?   "
-$user_machine = read-host 
+#"How much watt per hour your machine is using?   "
+#$user_machine = read-host 
 
-$PRICE_per_hour = $user_machine/$Kilowatt*$KiloWattPerUur
+#$PRICE_per_hour = $user_machine/$Kilowatt*$KiloWattPerUur
 
-"Using this machine will cost you " + $PRICE_per_hour  + " euro per hour"
+#"Using this machine will cost you " + $PRICE_per_hour  + " euro per hour"
 
 
 function calculator 
 {
-    param($watt)
+    param($watt, $KiloWattPerUur)
 
-    $total = ($watt / 1000) * 0.88
+    $total = ($watt / 1000) * $KiloWattPerUur
 
     write-host 'Using this machine will cost you'  $total  'huro per hour'
 
@@ -30,4 +30,4 @@ function calculator
 }
 
 
-calculator -watt 1000000
+calculator -watt 10000 -KiloWattPerUur 0.88
